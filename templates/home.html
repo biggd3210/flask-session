@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+
+<!-- <container>
+    <h2>Welcome to the {{survey_title}}</h2>
+    <p>{{instructions}}</p>
+    <form id="begin" action="/question/0">
+        <button>Begin Survey</button>
+    </form>
+</container> -->
+    
+    
+    
+    
+    <container>
+        <h2>Welcome to the Survey selection page</h2>
+        <h4>Please select your survey from the options below and click begin.</h4>
+        <form id="begin" method="POST" action="/session-init">
+            {% for survey in survey_list %}
+            <input type="radio" name="survey-title" id={{survey}} value={{survey}} >
+            <lable for={{survey}}>{{survey}}</lable>
+            {% endfor %}
+            <div>
+                <button type="submit" id="begin-survey">Click to Begin</button>
+            </div>
+        </form>
+    </container>
+
+{% endblock %}

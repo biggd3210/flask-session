@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Survey End{% endblock %}
+
+{% block content %}
+
+    <h1>You have reached the end of the survey!</h1>
+        <p>Thank you for your time and cooperation.</p>
+    <h3>Your responses are as follows:</h3>
+
+    
+    {% for question in survey.questions %}
+        <h4>{{question.question}}</h4>
+            <p>Your response: {{responses[loop.index0]['answer']}} {% if responses[loop.index0]['text'] != '' %} {{responses[loop.index0]['text']}} {% endif %}</p>
+        {% endfor %}
+    </ol>
+
+    <p>Would you like to take another surey?</p>
+    <form action="/">
+        <button>Start a New Survey</button>
+    </form>
+{% endblock %}
